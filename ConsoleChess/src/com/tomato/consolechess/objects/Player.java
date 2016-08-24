@@ -2,11 +2,11 @@ package com.tomato.consolechess.objects;
 
 public class Player {
 	public String nazwa;
-	int iloscOcen;
-	int sumaOcen;
-	int iloscGoli;
-	float ocenaGracza;
-	int id;
+	public int iloscOcen;
+	public int sumaOcen;
+	public int iloscGoli;
+	public float ocenaGracza;
+	public int id;
 	
 	 public String getNazwa() {
 	        return nazwa;

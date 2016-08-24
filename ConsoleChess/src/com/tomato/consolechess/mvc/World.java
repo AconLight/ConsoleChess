@@ -7,15 +7,15 @@ import java.util.Scanner;
 import com.tomato.consolechess.objects.Player;
 
 public class World {
-	List<Player> listaGraczy;
-	Scanner scan = new Scanner(System.in);	
+	static List<Player> listaGraczy;
+	static Scanner scan = new Scanner(System.in);	
 	
 		World () {
 			listaGraczy = new ArrayList<Player>();
 			// ?
 		}
 		
-		public void dodajGracza(/* stefan */) {
+		public static void dodajGracza() {
 			
 			System.out.println("DODAWANIE NOWEGO GRACZA");
 			System.out.println("PODAJ NICK: ");
@@ -38,18 +38,33 @@ public class World {
 			System.out.println("DODANO GRACZA " + nazwa);
 		}
 		
-		public void pokazGracza(int id) {
-			System.out.println("PODGLAD GRACZAY");
+		public static void pokazGraczy(int id) {
+			System.out.println("PODGLAD GRACZY");
 			
 			while(id > listaGraczy.size()){
 	
-				System.out.println(listaGraczy.get(id).nazwa);
+				System.out.println("ID: " + id + " " + listaGraczy.get(id).nazwa);
 				id++;
 			}
-			
-			
+	
+		}
+		
+		public void pokazStatystyki(int id, String name){
+
 			System.out.println("PODAJ ID GRACZA ZEBY ZOBACZYCZ JEGO STATYSTYKI");
+
+			name = scan.nextLine();
 			
+			while(id > listaGraczy.size()){
+				if(name.equals("id")){
+					System.out.println(listaGraczy.get(id).nazwa + 
+										", ILOSC GOLI: " + listaGraczy.get(id).iloscGoli +
+										", OCENA GRACZA: " + listaGraczy.get(id).ocenaGracza + 
+										"ID GRACZA: " + listaGraczy.get(id).id);
+				}
+				id++;
+			}
+		
 		}
 		
 		void update() {
